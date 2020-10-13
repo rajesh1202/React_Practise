@@ -10,6 +10,7 @@ import PostClassContainer from "./posts/PostClassContainer";
 import GalleryContainer from "./gallery/GalleryContainer";
 import Greeting from "./conditional-rendering/Greeting";
 import MyList from "./lists/MyList";
+import DrumKitSound from "./Drum-Kit/DrunKitSound";
 
 const htmlContent = (
   <div>
@@ -53,7 +54,7 @@ const MyFunction = () => {
 
 ReactDOM.render(
   <div>
-    <MyList />
+    <DrumKitSound />
   </div>,
   document.getElementById("root")
 );
