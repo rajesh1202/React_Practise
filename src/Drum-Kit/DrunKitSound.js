@@ -9,9 +9,11 @@ export default function DrumKitSound() {
     const key = e.keyCode;
     const div = document.querySelector(`div[data-key="${key}"]`);
     const audio = document.querySelector(`audio[data-key="${key}"]`);
+    console.log(":: Remove Sound ::", { div, audio });
     if (div && audio) {
       div.classList.remove("playing");
-      audio.stop();
+      audio.pause();
+      audio.currentTime = 0;
     }
   }
 
@@ -19,6 +21,7 @@ export default function DrumKitSound() {
     const key = e.keyCode;
     const div = document.querySelector(`div[data-key="${key}"]`);
     const audio = document.querySelector(`audio[data-key="${key}"]`);
+    console.log(":: Play Sound ::", { div, audio, key });
     if (!!div && !!audio) {
       div.classList.add("playing");
       audio.play();
@@ -27,13 +30,20 @@ export default function DrumKitSound() {
       //   audio.stop();
       // }, 4000);
 
-      setTimeout(removeSound, 3000);
+      setTimeout(() => {
+        removeSound(e);
+      }, 3000);
+
+      // setTimeout(function(){})
+      setTimeout(removeSound);
     }
   }
 
   React.useEffect(() => {
+    console.log(".... EXECUTE Effects ...");
     document.addEventListener("keypress", playSound);
-  });
+    document.addEventListener("EVENT", function (event) {});
+  }, []);
 
   return (
     <div className="keys">
