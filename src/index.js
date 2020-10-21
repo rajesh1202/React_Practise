@@ -11,6 +11,7 @@ import GalleryContainer from "./gallery/GalleryContainer";
 import Greeting from "./conditional-rendering/Greeting";
 import MyList from "./lists/MyList";
 import DrumKitSound from "./Drum-Kit/DrunKitSound";
+import JSClock from "./JS-Clock/JSClock";
 
 const htmlContent = (
   <div>
@@ -54,7 +55,8 @@ const MyFunction = () => {
 
 ReactDOM.render(
   <div>
-    <DrumKitSound />
+    <JSClock id="first" />
+    <JSClock id="second" />
   </div>,
   document.getElementById("root")
 );
